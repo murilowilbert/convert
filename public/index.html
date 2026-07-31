@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert • Conversor de Arquivos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔄</text></svg>">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo" id="sidebar-logo">
+      <div class="logo-icon">
+        <img src="/images/logo.png" alt="Convert Logo" class="sidebar-logo-img" />
+      </div>
+      <span class="logo-text">Convert</span>
+      <button class="sidebar-collapse-btn" id="sidebar-collapse-btn" type="button" title="Esconder Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <button class="nav-item active" id="nav-convert" data-section="convert">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-6.22-8.56"/>
+            <polyline points="21 3 21 12 12 12"/>
+          </svg>
+        </span>
+        <span class="nav-text">Transformar Arquivos</span>
+      </button>
+
+      <button class="nav-item" id="nav-img-to-pdf" data-section="img-to-pdf">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <rect x="8" y="12" width="8" height="6" rx="1"/>
+          </svg>
+        </span>
+        <span class="nav-text">Imagens para PDF</span>
+      </button>
+
+      <button class="nav-item" id="nav-pdf-to-img" data-section="pdf-to-img">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </span>
+        <span class="nav-text">PDF para Imagens</span>
+      </button>
+
+      <button class="nav-item" id="nav-merge-pdf" data-section="merge-pdf">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8z"/>
+            <path d="M8 3v4a2 2 0 0 0 2 2h4"/>
+            <line x1="12" y1="11" x2="12" y2="17"/>
+            <line x1="9" y1="14" x2="15" y2="14"/>
+          </svg>
+        </span>
+        <span class="nav-text">Juntar PDFs</span>
+      </button>
+
+      <button class="nav-item" id="nav-split-pdf" data-section="split-pdf">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+            <path d="M3 20h18"/>
+          </svg>
+        </span>
+        <span class="nav-text">Dividir PDF</span>
+      </button>
+
+      <button class="nav-item" id="nav-spreadsheet" data-section="spreadsheet">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/>
+            <line x1="3" y1="15" x2="21" y2="15"/>
+            <line x1="9" y1="3" x2="9" y2="21"/>
+            <line x1="15" y1="3" x2="15" y2="21"/>
+          </svg>
+        </span>
+        <span class="nav-text">Planilhas</span>
+      </button>
+
+      <button class="nav-item" id="nav-documents" data-section="documents">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="8" y1="13" x2="16" y2="13"/>
+            <line x1="8" y1="17" x2="16" y2="17"/>
+            <line x1="8" y1="9" x2="10" y2="9"/>
+          </svg>
+        </span>
+        <span class="nav-text">Documentos</span>
+      </button>
+
+      <button class="nav-item" id="nav-pje-optimize" data-section="pje-optimize">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="3" x2="12" y2="21" />
+            <line x1="5" y1="7" x2="19" y2="7" />
+            <path d="M5 7 L2 13 C3.5 14.5 6.5 14.5 8 13 Z" />
+            <path d="M19 7 L16 13 C17.5 14.5 20.5 14.5 22 13 Z" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+          </svg>
+        </span>
+        <span class="nav-text">Otimizar PDF (PJe)</span>
+      </button>
+
+      <button class="nav-item" id="nav-ocr" data-section="ocr">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <circle cx="10" cy="13" r="3"/>
+            <line x1="12" y1="15" x2="15" y2="18"/>
+          </svg>
+        </span>
+        <span class="nav-text">Reconhecer Texto (OCR)</span>
+      </button>
+
+      <button class="nav-item" id="nav-media-compress" data-section="media-compress">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 7l-7 5 7 5V7z"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            <path d="M6 10l3 3-3 3"/>
+          </svg>
+        </span>
+        <span class="nav-text">Comprimir Mídias</span>
+      </button>
+
+      <div class="nav-separator"></div>
+
+      <button class="nav-item" id="nav-history" data-section="history">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </span>
+        <span class="nav-text">Histórico</span>
+      </button>
+
+      <button class="nav-item nav-item-danger" id="nav-clear-all">
+        <span class="nav-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            <line x1="10" y1="11" x2="10" y2="17"/>
+            <line x1="14" y1="11" x2="14" y2="17"/>
+          </svg>
+        </span>
+        <span class="nav-text">Limpar Tudo</span>
+      </button>
+    </nav>
+
+  </aside>
+
+  <!-- Mobile menu toggle -->
+  <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- Floating button to show sidebar when hidden -->
+  <button class="sidebar-expand-btn" id="sidebar-expand-btn" type="button" style="display: none;" title="Mostrar Menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"/>
+    </svg>
+  </button>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+
+    <!-- Section: Transformar Arquivos -->
+    <div class="section active" id="section-convert">
+      <div class="section-header">
+        <h1 class="section-title" id="title-convert">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-6.22-8.56"/>
+            <polyline points="21 3 21 12 12 12"/>
+          </svg>
+          Transformar Arquivos
+        </h1>
+        <button class="btn-help" id="btn-help-convert" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-convert">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste seus arquivos aqui</p>
+        <p class="drop-zone-hint">ou clique para selecionar do computador</p>
+        <button class="drop-zone-btn" id="btn-browse-convert" type="button">Selecionar Arquivos</button>
+      </div>
+
+      <div class="file-list" id="file-list-convert"></div>
+
+      <div class="img-to-pdf-workspace" id="workspace-convert" style="display: none; margin-top: 24px;">
+        <!-- Coluna Esquerda: Configurações -->
+        <div class="workspace-settings">
+          <div class="controls-panel" id="controls-convert" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Configurações de Conversão
+            </h3>
+            <div class="controls-row">
+              <div class="control-group">
+                <label class="control-label" for="select-format-convert">Formato de saída</label>
+                <select class="control-select" id="select-format-convert">
+                  <option value="">Selecione um formato...</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="select-category-convert">Categoria detectada</label>
+                <span class="badge" id="badge-category-convert">—</span>
+              </div>
+            </div>
+
+            <!-- Opções Extras de Imagem (ocultas por padrão) -->
+            <div class="controls-row" id="image-convert-options" style="display: none; margin-top: 16px; border-top: 1px dashed var(--glass-border); padding-top: 16px;">
+              <div class="control-group">
+                <label class="control-label">Qualidade da Imagem</label>
+                <div class="slider-container">
+                  <input type="range" class="slider" id="slider-quality-convert" min="50" max="100" value="90">
+                  <span class="slider-value" id="slider-quality-convert-value">90%</span>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Redimensionar (Largura px)</label>
+                <input type="number" class="control-input" id="input-width-convert" placeholder="Original" style="min-width: 120px;">
+              </div>
+              <div class="control-group">
+                <label class="control-label">Altura (px)</label>
+                <input type="number" class="control-input" id="input-height-convert" placeholder="Original" style="min-width: 120px;">
+              </div>
+            </div>
+
+            <!-- Action bar inline inside settings -->
+            <div class="action-bar-inline" id="action-bar-convert-inline">
+              <div class="action-info">
+                <span id="selected-count-convert">0 arquivos selecionados</span>
+              </div>
+              <button class="btn-primary" id="btn-convert" type="button" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12a9 9 0 1 1-6.22-8.56"/>
+                  <polyline points="21 3 21 12 12 12"/>
+                </svg>
+                Converter
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Prévia -->
+        <div class="workspace-preview">
+          <div class="controls-panel" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Prévia do Arquivo
+            </h3>
+            <div id="convert-live-preview-container" class="pdf-live-preview-container" style="flex-direction: column; overflow-y: auto; max-height: 500px; overflow-x: hidden; align-items: center;">
+              <div class="preview-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <p>Selecione um arquivo para ver a prévia</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-bar" id="progress-convert" style="display: none;">
+        <div class="progress-bar-fill" id="progress-fill-convert" style="width: 0%;"></div>
+      </div>
+
+      <div class="results-panel" id="results-convert" style="display: none;">
+        <h3 class="results-title">Resultados da Conversão</h3>
+        <div class="results-list" id="results-list-convert"></div>
+        <div class="results-actions" id="results-actions-convert"></div>
+      </div>
+    </div>
+
+    <!-- Section: Imagens para PDF -->
+    <div class="section" id="section-img-to-pdf">
+      <div class="section-header">
+        <h1 class="section-title" id="title-img-to-pdf">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <rect x="8" y="12" width="8" height="6" rx="1"/>
+          </svg>
+          Imagens para PDF
+        </h1>
+        <button class="btn-help" id="btn-help-img-to-pdf" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-img-to-pdf">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste suas imagens aqui</p>
+        <p class="drop-zone-hint">PNG, JPG, WEBP, BMP, TIFF — aceita centenas de imagens de uma vez</p>
+        <button class="drop-zone-btn" id="btn-browse-img-to-pdf" type="button">Selecionar Imagens</button>
+      </div>
+
+      <!-- Toolbar de Seleção (aparece quando há imagens) -->
+      <div class="file-list-toolbar" id="toolbar-img-to-pdf" style="display: none;">
+        <div class="toolbar-left">
+          <button class="btn-toolbar" id="btn-toggle-files" type="button" title="Expandir/Recolher imagens">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            <span id="toggle-files-text">Recolher Imagens</span>
+          </button>
+          <span class="toolbar-counter" id="toolbar-counter-img-to-pdf">0 imagens</span>
+        </div>
+        <div class="toolbar-right">
+          <button class="btn-toolbar btn-toolbar-accent" id="btn-toggle-select-all-img-to-pdf" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="select-icon" style="margin-right: 4px;">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span class="select-text">Selecionar Tudo</span>
+          </button>
+          <button class="btn-help" id="btn-help-img-to-pdf" type="button" title="Ajuda & Tutorial" style="margin-left: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Lista de arquivos colapsável -->
+      <div class="file-list-collapsible" id="file-list-collapsible-img-to-pdf">
+        <div class="file-list" id="file-list-img-to-pdf"></div>
+      </div>
+
+      <!-- Workspace: Settings (esquerda) + Preview (direita) -->
+      <div class="img-to-pdf-workspace" id="workspace-img-to-pdf" style="display: none;">
+        <!-- Coluna Esquerda: Configurações -->
+        <div class="workspace-settings">
+          <div class="controls-panel" id="controls-img-to-pdf">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Configurações
+            </h3>
+
+            <div class="controls-row">
+              <div class="control-group">
+                <label class="control-label">Tamanho da página</label>
+                <div class="page-size-options" id="page-size-options">
+                  <button class="page-size-option active" id="page-size-a4" data-value="a4" type="button">A4</button>
+                  <button class="page-size-option" id="page-size-letter" data-value="letter" type="button">Carta</button>
+                  <button class="page-size-option" id="page-size-fit" data-value="fit" type="button">Ajustar à Imagem</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="controls-row">
+              <div class="control-group">
+                <label class="control-label">Ajuste da Imagem</label>
+                <div class="page-size-options" id="image-fit-options">
+                  <button class="page-size-option active" id="image-fit-contain" data-value="contain" type="button">Deixar Inteira</button>
+                  <button class="page-size-option" id="image-fit-cover" data-value="cover" type="button">Cortar e Preencher</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="controls-row">
+              <div class="control-group">
+                <label class="control-label">Imagens por página</label>
+                <div class="grid-options" id="grid-options">
+                  <button class="grid-option active" id="grid-option-1" data-value="1" type="button">
+                    <div class="grid-preview grid-preview-1"><div class="grid-cell"></div></div>
+                    <span>1</span>
+                  </button>
+                  <button class="grid-option" id="grid-option-2" data-value="2" type="button">
+                    <div class="grid-preview grid-preview-2"><div class="grid-cell"></div><div class="grid-cell"></div></div>
+                    <span>2</span>
+                  </button>
+                  <button class="grid-option" id="grid-option-4" data-value="4" type="button">
+                    <div class="grid-preview grid-preview-4"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+                    <span>4</span>
+                  </button>
+                  <button class="grid-option" id="grid-option-6" data-value="6" type="button">
+                    <div class="grid-preview grid-preview-6"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+                    <span>6</span>
+                  </button>
+                  <button class="grid-option" id="grid-option-9" data-value="9" type="button">
+                    <div class="grid-preview" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; width: 24px; height: 24px;"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+                    <span>9</span>
+                  </button>
+                  <button class="grid-option" id="grid-option-12" data-value="12" type="button">
+                    <div class="grid-preview" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; width: 24px; height: 24px;"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+                    <span>12</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="controls-row">
+              <div class="control-group" style="flex: 1;">
+                <label class="control-label">Margem</label>
+                <div class="slider-container">
+                  <input type="range" class="slider" id="slider-margin" min="0" max="30" value="0">
+                  <span class="slider-value" id="slider-margin-value">0mm</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="controls-row" style="margin-top: 12px;">
+              <div class="control-group" style="flex: 1;">
+                <label class="control-label" for="select-resolution-img-to-pdf">Resolução Máxima das Fotos</label>
+                <select class="control-select" id="select-resolution-img-to-pdf" style="width: 100%;">
+                  <option value="original" selected>Original (Sem redução)</option>
+                  <option value="2160">4K Ultra HD (2160p)</option>
+                  <option value="1080">Full HD (1080p)</option>
+                  <option value="720">HD (720p)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="controls-row" style="margin-top: 16px; margin-bottom: 8px;">
+              <div class="control-group">
+                <label class="switch-container">
+                  <input type="checkbox" id="checkbox-number-pages" class="switch-input">
+                  <span class="switch-slider"></span>
+                  <span class="switch-label">Numerar Páginas (Estilo Judicial)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Action bar dentro das configurações -->
+            <div class="action-bar-inline" id="action-bar-img-to-pdf">
+              <div class="action-info">
+                <span id="selected-count-img-to-pdf">0 imagens selecionadas</span>
+              </div>
+              <button class="btn-primary" id="btn-create-pdf" type="button" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                Criar PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Prévia -->
+        <div class="workspace-preview">
+          <div class="controls-panel" id="preview-panel-img-to-pdf">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Prévia do PDF
+            </h3>
+            <div id="pdf-live-preview-container" class="pdf-live-preview-container">
+              <div class="preview-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <p>Selecione imagens para ver a prévia</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-bar" id="progress-img-to-pdf" style="display: none;">
+        <div class="progress-bar-fill" id="progress-fill-img-to-pdf" style="width: 0%;"></div>
+      </div>
+
+      <div class="results-panel" id="results-img-to-pdf" style="display: none;">
+        <h3 class="results-title">PDF Criado</h3>
+        <div class="results-list" id="results-list-img-to-pdf"></div>
+        <div class="results-actions" id="results-actions-img-to-pdf"></div>
+      </div>
+    </div>
+
+    <!-- Section: PDF para Imagens -->
+    <div class="section" id="section-pdf-to-img">
+      <div class="section-header">
+        <h1 class="section-title" id="title-pdf-to-img">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          PDF para Imagens
+        </h1>
+        <button class="btn-help" id="btn-help-pdf-to-img" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-pdf-to-img">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste seu PDF aqui</p>
+        <p class="drop-zone-hint">Apenas arquivos PDF</p>
+        <button class="drop-zone-btn" id="btn-browse-pdf-to-img" type="button">Selecionar PDF</button>
+      </div>
+
+      <div class="file-list" id="file-list-pdf-to-img"></div>
+
+      <div class="img-to-pdf-workspace" id="workspace-pdf-to-img" style="display: none; margin-top: 24px;">
+        <!-- Coluna Esquerda: Configurações -->
+        <div class="workspace-settings">
+          <div class="controls-panel" id="controls-pdf-to-img" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Configurações de Extração
+            </h3>
+            <div class="controls-row">
+              <div class="control-group">
+                <label class="control-label" for="select-img-format">Formato da imagem</label>
+                <select class="control-select" id="select-img-format">
+                  <option value="png">PNG</option>
+                  <option value="jpg">JPG</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Escala / Resolução</label>
+                <div class="page-size-options" id="scale-options">
+                  <button class="page-size-option active" id="scale-1" data-value="1" type="button">1x</button>
+                  <button class="page-size-option" id="scale-1-5" data-value="1.5" type="button">1.5x</button>
+                  <button class="page-size-option" id="scale-2" data-value="2" type="button">2x</button>
+                  <button class="page-size-option" id="scale-3" data-value="3" type="button">3x</button>
+                </div>
+              </div>
+            </div>
+            <div class="controls-row">
+              <div class="control-group" style="flex: 1;">
+                <label class="control-label" for="input-page-range">Intervalo de páginas (ex: 1-5, 8, 10-12)</label>
+                <input type="text" class="control-input" id="input-page-range" placeholder="Todas as páginas" style="width: 100%;">
+              </div>
+            </div>
+
+            <!-- Action bar inline -->
+            <div class="action-bar-inline" id="action-bar-pdf-to-img-inline">
+              <div class="action-info">
+                <span id="pdf-info-pdf-to-img">Carregando informações do PDF...</span>
+              </div>
+              <button class="btn-primary" id="btn-pdf-to-img" type="button" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                Extrair Imagens
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Prévia -->
+        <div class="workspace-preview">
+          <div class="controls-panel" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Páginas Selecionadas
+            </h3>
+            <div id="pdf-to-img-live-preview-container" class="pdf-live-preview-container" style="flex-direction: column; overflow-y: auto; max-height: 500px; overflow-x: hidden; align-items: center;">
+              <div class="preview-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <p>Aguardando carregamento do PDF...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-bar" id="progress-pdf-to-img" style="display: none;">
+        <div class="progress-bar-fill" id="progress-fill-pdf-to-img" style="width: 0%;"></div>
+      </div>
+
+      <div class="results-panel" id="results-pdf-to-img" style="display: none;">
+        <h3 class="results-title">Imagens Extraídas</h3>
+        <div class="results-list" id="results-list-pdf-to-img"></div>
+        <div class="results-actions" id="results-actions-pdf-to-img"></div>
+      </div>
+    </div>
+
+    <!-- Section: Juntar PDFs -->
+    <div class="section" id="section-merge-pdf">
+      <div class="section-header">
+        <h1 class="section-title" id="title-merge-pdf">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8z"/>
+            <path d="M8 3v4a2 2 0 0 0 2 2h4"/>
+            <line x1="12" y1="11" x2="12" y2="17"/>
+            <line x1="9" y1="14" x2="15" y2="14"/>
+          </svg>
+          Juntar PDFs
+        </h1>
+        <button class="btn-help" id="btn-help-merge-pdf" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-merge-pdf">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="12" y1="11" x2="12" y2="17"/>
+            <line x1="9" y1="14" x2="15" y2="14"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste seus PDFs aqui</p>
+        <p class="drop-zone-hint">Arraste para reordenar após adicionar</p>
+        <button class="drop-zone-btn" id="btn-browse-merge-pdf" type="button">Selecionar PDFs</button>
+      </div>
+
+      <div class="sortable-container" id="sortable-merge-pdf" style="display: none;">
+        <h3 class="sortable-title">Ordem dos PDFs <span class="text-muted">(arraste para reordenar)</span></h3>
+        <ul class="sortable-list" id="sortable-list-merge-pdf"></ul>
+      </div>
+
+      <div class="img-to-pdf-workspace" id="workspace-merge-pdf" style="display: none; margin-top: 24px;">
+        <!-- Coluna Esquerda: Configurações -->
+        <div class="workspace-settings">
+          <div class="controls-panel" id="controls-merge-pdf" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Configurações de Mesclagem
+            </h3>
+            
+            <div class="controls-row">
+              <div class="control-group">
+                <label class="control-label">Tamanho da Página</label>
+                <div class="page-size-options" id="page-size-options-merge">
+                  <button class="page-size-option active" id="page-size-merge-auto" data-value="auto" type="button">Automático</button>
+                  <button class="page-size-option" id="page-size-merge-a4" data-value="a4" type="button">A4</button>
+                  <button class="page-size-option" id="page-size-merge-letter" data-value="letter" type="button">Carta</button>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Adicionar Paginação</label>
+                <div class="page-size-options" id="page-number-options-merge">
+                  <button class="page-size-option active" id="page-number-merge-no" data-value="no" type="button">Não</button>
+                  <button class="page-size-option" id="page-number-merge-yes" data-value="yes" type="button">Sim (Centralizado)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action bar inline -->
+            <div class="action-bar-inline" id="action-bar-merge-pdf-inline">
+              <div class="action-info">
+                <span id="merge-count">0 PDFs para juntar</span>
+              </div>
+              <button class="btn-primary" id="btn-merge-pdf" type="button" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8z"/>
+                </svg>
+                Juntar PDFs
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Prévia -->
+        <div class="workspace-preview">
+          <div class="controls-panel" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Estrutura das Páginas
+            </h3>
+            <div id="merge-live-preview-container" class="pdf-live-preview-container" style="flex-direction: column; overflow-y: auto; max-height: 500px; overflow-x: hidden; align-items: center;">
+              <div class="preview-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <p>Ordene os arquivos para ver a estrutura final</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-bar" id="progress-merge-pdf" style="display: none;">
+        <div class="progress-bar-fill" id="progress-fill-merge-pdf" style="width: 0%;"></div>
+      </div>
+
+      <div class="results-panel" id="results-merge-pdf" style="display: none;">
+        <h3 class="results-title">PDF Combinado</h3>
+        <div class="results-list" id="results-list-merge-pdf"></div>
+        <div class="results-actions" id="results-actions-merge-pdf"></div>
+      </div>
+    </div>
+
+    <!-- Section: Dividir PDF -->
+    <div class="section" id="section-split-pdf">
+      <div class="section-header">
+        <h1 class="section-title" id="title-split-pdf">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+            <path d="M3 20h18"/>
+          </svg>
+          Dividir PDF
+        </h1>
+        <button class="btn-help" id="btn-help-split-pdf" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-split-pdf">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste seu PDF aqui</p>
+        <p class="drop-zone-hint">Apenas um arquivo PDF por vez</p>
+        <button class="drop-zone-btn" id="btn-browse-split-pdf" type="button">Selecionar PDF</button>
+      </div>
+
+      <div class="file-list" id="file-list-split-pdf"></div>
+
+      <div class="img-to-pdf-workspace" id="workspace-split-pdf" style="display: none; margin-top: 24px;">
+        <!-- Coluna Esquerda: Configurações -->
+        <div class="workspace-settings">
+          <div class="controls-panel" id="controls-split-pdf" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Configurações de Divisão
+            </h3>
+            <div class="controls-row">
+              <div class="control-group">
+                <label class="control-label">Modo de divisão</label>
+                <div class="page-size-options" id="split-mode-options">
+                  <button class="page-size-option active" id="split-mode-all" data-value="all" type="button">Todas as páginas</button>
+                  <button class="page-size-option" id="split-mode-range" data-value="range" type="button">Intervalo</button>
+                  <button class="page-size-option" id="split-mode-specific" data-value="specific" type="button">Páginas específicas</button>
+                </div>
+              </div>
+            </div>
+            <div class="controls-row" id="split-range-controls" style="display: none;">
+              <div class="control-group">
+                <label class="control-label" for="split-start-page">Página inicial</label>
+                <input type="number" class="control-input" id="split-start-page" min="1" value="1" placeholder="1">
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="split-end-page">Página final</label>
+                <input type="number" class="control-input" id="split-end-page" min="1" placeholder="Última">
+              </div>
+            </div>
+            <div class="controls-row" id="split-specific-controls" style="display: none;">
+              <div class="control-group" style="flex: 1;">
+                <label class="control-label" for="split-specific-pages">Páginas (separadas por vírgula)</label>
+                <input type="text" class="control-input" id="split-specific-pages" placeholder="1, 3, 5, 7-10" style="width: 100%;">
+              </div>
+            </div>
+
+            <!-- Action bar inline -->
+            <div class="action-bar-inline" id="action-bar-split-pdf-inline">
+              <div class="action-info">
+                <span id="pdf-info-split">Carregando informações do PDF...</span>
+              </div>
+              <button class="btn-primary" id="btn-split-pdf" type="button" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6" y1="20" x2="6" y2="14"/>
+                </svg>
+                Dividir PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Prévia -->
+        <div class="workspace-preview">
+          <div class="controls-panel" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Estrutura de Extração
+            </h3>
+            <div id="split-live-preview-container" class="pdf-live-preview-container" style="flex-direction: column; overflow-y: auto; max-height: 500px; overflow-x: hidden; align-items: center;">
+              <div class="preview-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <p>Aguardando carregamento do PDF...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-bar" id="progress-split-pdf" style="display: none;">
+        <div class="progress-bar-fill" id="progress-fill-split-pdf" style="width: 0%;"></div>
+      </div>
+
+      <div class="results-panel" id="results-split-pdf" style="display: none;">
+        <h3 class="results-title">Páginas Extraídas</h3>
+        <div class="results-list" id="results-list-split-pdf"></div>
+        <div class="results-actions" id="results-actions-split-pdf"></div>
+      </div>
+    </div>
+
+    <!-- Section: Planilhas -->
+    <div class="section" id="section-spreadsheet">
+      <div class="section-header">
+        <h1 class="section-title" id="title-spreadsheet">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/>
+            <line x1="3" y1="15" x2="21" y2="15"/>
+            <line x1="9" y1="3" x2="9" y2="21"/>
+            <line x1="15" y1="3" x2="15" y2="21"/>
+          </svg>
+          Planilhas
+        </h1>
+        <button class="btn-help" id="btn-help-spreadsheet" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-spreadsheet">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/>
+            <line x1="3" y1="15" x2="21" y2="15"/>
+            <line x1="9" y1="3" x2="9" y2="21"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste suas planilhas aqui</p>
+        <p class="drop-zone-hint">XLSX, XLS, CSV, ODS, TSV</p>
+        <button class="drop-zone-btn" id="btn-browse-spreadsheet" type="button">Selecionar Planilhas</button>
+      </div>
+
+      <div class="file-list" id="file-list-spreadsheet"></div>
+
+      <div class="controls-panel" id="controls-spreadsheet" style="display: none;">
+        <div class="controls-row">
+          <div class="control-group">
+            <label class="control-label" for="select-format-spreadsheet">Formato de saída</label>
+            <select class="control-select" id="select-format-spreadsheet">
+              <option value="">Selecione um formato...</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-bar" id="action-bar-spreadsheet" style="display: none;">
+        <div class="action-info">
+          <span id="selected-count-spreadsheet">0 arquivos selecionados</span>
+        </div>
+        <button class="btn-primary" id="btn-convert-spreadsheet" type="button" disabled>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-6.22-8.56"/>
+            <polyline points="21 3 21 12 12 12"/>
+          </svg>
+          Converter Planilha
+        </button>
+      </div>
+
+      <div class="progress-bar" id="progress-spreadsheet" style="display: none;">
+        <div class="progress-bar-fill" id="progress-fill-spreadsheet" style="width: 0%;"></div>
+      </div>
+
+      <div class="results-panel" id="results-spreadsheet" style="display: none;">
+        <h3 class="results-title">Planilhas Convertidas</h3>
+        <div class="results-list" id="results-list-spreadsheet"></div>
+        <div class="results-actions" id="results-actions-spreadsheet"></div>
+      </div>
+    </div>
+
+    <!-- Section: Documentos -->
+    <div class="section" id="section-documents">
+      <div class="section-header">
+        <h1 class="section-title" id="title-documents">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="8" y1="13" x2="16" y2="13"/>
+            <line x1="8" y1="17" x2="16" y2="17"/>
+            <line x1="8" y1="9" x2="10" y2="9"/>
+          </svg>
+          Documentos
+        </h1>
+        <button class="btn-help" id="btn-help-documents" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-documents">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="8" y1="13" x2="16" y2="13"/>
+            <line x1="8" y1="17" x2="16" y2="17"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste seus documentos aqui</p>
+        <p class="drop-zone-hint">DOCX, DOC, TXT</p>
+        <button class="drop-zone-btn" id="btn-browse-documents" type="button">Selecionar Documentos</button>
+      </div>
+
+      <div class="file-list" id="file-list-documents"></div>
+
+      <div class="controls-panel" id="controls-documents" style="display: none;">
+        <div class="controls-row">
+          <div class="control-group">
+            <label class="control-label" for="select-format-documents">Formato de saída</label>
+            <select class="control-select" id="select-format-documents">
+              <option value="">Selecione um formato...</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-bar" id="action-bar-documents" style="display: none;">
+        <div class="action-info">
+          <span id="selected-count-documents">0 arquivos selecionados</span>
+        </div>
+        <button class="btn-primary" id="btn-convert-documents" type="button" disabled>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-6.22-8.56"/>
+            <polyline points="21 3 21 12 12 12"/>
+          </svg>
+          Converter Documento
+        </button>
+      </div>
+
+      <div class="progress-bar" id="progress-documents" style="display: none;">
+        <div class="progress-bar-fill" id="progress-fill-documents" style="width: 0%;"></div>
+      </div>
+
+      <div class="results-panel" id="results-documents" style="display: none;">
+        <h3 class="results-title">Documentos Convertidos</h3>
+        <div class="results-list" id="results-list-documents"></div>
+        <div class="results-actions" id="results-actions-documents"></div>
+      </div>
+    </div>
+
+    <!-- Section: Otimizar PDF (PJe) -->
+    <div class="section" id="section-pje-optimize">
+      <div class="section-header">
+        <h1 class="section-title" id="title-pje-optimize">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="3" x2="12" y2="21" />
+            <line x1="5" y1="7" x2="19" y2="7" />
+            <path d="M5 7 L2 13 C3.5 14.5 6.5 14.5 8 13 Z" />
+            <path d="M19 7 L16 13 C17.5 14.5 20.5 14.5 22 13 Z" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+          </svg>
+          Otimizar PDF (PJe)
+        </h1>
+        <button class="btn-help" id="btn-help-pje-optimize" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-pje-optimize">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste seu PDF aqui</p>
+        <p class="drop-zone-hint">Arquivos PDF para Divisão ou Compressão Judicial</p>
+        <button class="drop-zone-btn" id="btn-browse-pje-optimize" type="button">Selecionar PDF</button>
+      </div>
+
+      <div class="file-list" id="file-list-pje-optimize"></div>
+
+      <div class="img-to-pdf-workspace" id="workspace-pje-optimize" style="display: none; margin-top: 24px;">
+        <!-- Coluna Esquerda: Configurações -->
+        <div class="workspace-settings">
+          <div class="controls-panel" id="controls-pje-optimize" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Ferramentas de Otimização PJe
+            </h3>
+            
+            <div class="controls-row">
+              <div class="control-group">
+                <label class="control-label">Ação desejada</label>
+                <div class="page-size-options" id="pje-action-options" style="flex-wrap: wrap;">
+                  <button class="page-size-option active" id="pje-action-split" data-value="split" type="button">Dividir PDF por Tamanho</button>
+                  <button class="page-size-option" id="pje-action-compress" data-value="compress" type="button">Comprimir & Achatar (Rasterizar)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controles específicos do Divisor -->
+            <div id="pje-split-controls" style="margin-top: 12px; width: 100%;">
+              <div class="controls-row">
+                <div class="control-group" style="flex: 1;">
+                  <label class="control-label" for="select-pje-size">Tamanho Máximo por Arquivo</label>
+                  <select class="control-select" id="select-pje-size" style="width: 100%;">
+                    <option value="2">2 MB (Ideal para TRF / Tribunais Estaduais)</option>
+                    <option value="5" selected>5 MB (Padrão e-SAJ / Projudi)</option>
+                    <option value="10">10 MB (Padrão PJe Geral / TRT)</option>
+                    <option value="custom">Tamanho Personalizado (MB)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="controls-row" id="pje-custom-size-row" style="display: none; margin-top: 12px; width: 100%;">
+                <div class="control-group" style="flex: 1;">
+                  <label class="control-label" for="input-pje-custom-size">Tamanho Máximo (MB)</label>
+                  <input type="number" class="control-input" id="input-pje-custom-size" min="1" max="100" value="5" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Controles específicos do Compressor -->
+            <div id="pje-compress-controls" style="display: none; margin-top: 12px; width: 100%;">
+              <div class="controls-row">
+                <div class="control-group" style="flex: 1;">
+                  <label class="control-label">Resolução de Compressão</label>
+                  <div class="page-size-options" id="pje-compress-dpi-options" style="gap: 8px;">
+                    <button class="page-size-option active" data-value="150" type="button">150 DPI (Recomendado)</button>
+                    <button class="page-size-option" data-value="100" type="button">100 DPI (Super Leve)</button>
+                    <button class="page-size-option" data-value="200" type="button">200 DPI (Mais Nítido)</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action bar inline -->
+            <div class="action-bar-inline" id="action-bar-pje-optimize-inline">
+              <div class="action-info">
+                <span id="pje-info-text">Carregando informações do PDF...</span>
+              </div>
+              <button class="btn-primary" id="btn-pje-optimize" type="button" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Otimizar Arquivo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Detalhes do PDF -->
+        <div class="workspace-preview">
+          <div class="controls-panel" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Estrutura do Documento
+            </h3>
+            <div id="pje-live-preview-container" class="pdf-live-preview-container" style="flex-direction: column; overflow-y: auto; max-height: 500px; overflow-x: hidden; align-items: center;">
+              <div class="preview-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <p>Aguardando carregamento do PDF...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-bar" id="progress-pje-optimize" style="display: none;">
+        <div class="progress-bar-fill" id="progress-fill-pje-optimize" style="width: 0%;"></div>
+      </div>
+
+      <div class="results-panel" id="results-pje-optimize" style="display: none;">
+        <h3 class="results-title">Arquivos Otimizados Gerados</h3>
+        <div class="results-list" id="results-list-pje-optimize"></div>
+        <div class="results-actions" id="results-actions-pje-optimize"></div>
+      </div>
+    </div>
+
+    <!-- Section: Reconhecer Texto (OCR) -->
+    <div class="section" id="section-ocr">
+      <div class="section-header">
+        <h1 class="section-title" id="title-ocr">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <circle cx="10" cy="13" r="3"/>
+            <line x1="12" y1="15" x2="15" y2="18"/>
+          </svg>
+          Reconhecer Texto (OCR)
+        </h1>
+        <button class="btn-help" id="btn-help-ocr" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-ocr">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <circle cx="10" cy="13" r="2"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste seu PDF ou Imagem aqui</p>
+        <p class="drop-zone-hint">Arquivos PDF escaneados ou fotos para extração de texto pesquisável</p>
+        <button class="drop-zone-btn" id="btn-browse-ocr" type="button">Selecionar Arquivo</button>
+      </div>
+
+      <div class="file-list" id="file-list-ocr"></div>
+
+      <div class="img-to-pdf-workspace" id="workspace-ocr" style="display: none; margin-top: 24px;">
+        <div class="workspace-settings">
+          <div class="controls-panel" id="controls-ocr" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Configurações de OCR
+            </h3>
+
+            <div class="controls-row">
+              <div class="control-group" style="flex: 1;">
+                <label class="control-label" for="select-ocr-lang">Idioma do Documento</label>
+                <select class="control-select" id="select-ocr-lang" style="width: 100%;">
+                  <option value="por" selected>Português (Recomendado)</option>
+                  <option value="eng">Inglês</option>
+                  <option value="por+eng">Português + Inglês</option>
+                  <option value="spa">Espanhol</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="controls-row" style="margin-top: 12px;">
+              <div class="control-group" style="flex: 1;">
+                <label class="control-label" for="select-ocr-format">Formato de Saída</label>
+                <select class="control-select" id="select-ocr-format" style="width: 100%;">
+                  <option value="pdf" selected>PDF Pesquisável (Ctrl+F) — Recomendado</option>
+                  <option value="txt">Apenas Texto Extraído (TXT)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="action-bar-inline" id="action-bar-ocr-inline" style="margin-top: 16px;">
+              <div class="action-info">
+                <span id="ocr-info-text">Aguardando arquivo...</span>
+              </div>
+              <button class="btn-primary" id="btn-ocr-start" type="button" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Iniciar Reconhecimento
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="workspace-preview">
+          <div class="controls-panel" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Estrutura do Arquivo
+            </h3>
+            <div id="ocr-live-preview-container" class="pdf-live-preview-container" style="flex-direction: column; overflow-y: auto; max-height: 500px; overflow-x: hidden; align-items: center;">
+              <div class="preview-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <p>Nenhum arquivo ativo...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-panel" id="results-ocr" style="display: none;">
+        <h3 class="results-title">Arquivo Reconhecido Gerado</h3>
+        <div class="results-list" id="results-list-ocr"></div>
+        <div class="results-actions" id="results-actions-ocr"></div>
+      </div>
+    </div>
+
+    <!-- Section: Comprimir Mídias -->
+    <div class="section" id="section-media-compress">
+      <div class="section-header">
+        <h1 class="section-title" id="title-media-compress">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 7l-7 5 7 5V7z"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            <path d="M6 10l3 3-3 3"/>
+          </svg>
+          Comprimir Mídias (WhatsApp)
+        </h1>
+        <button class="btn-help" id="btn-help-media-compress" type="button" title="Ajuda & Tutorial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drop-zone" id="drop-zone-media-compress">
+        <div class="drop-zone-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+            <line x1="7" y1="2" x2="7" y2="22"/>
+            <line x1="17" y1="2" x2="17" y2="22"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <line x1="2" y1="7" x2="7" y2="7"/>
+            <line x1="2" y1="17" x2="7" y2="17"/>
+            <line x1="17" y1="17" x2="22" y2="17"/>
+            <line x1="17" y1="7" x2="22" y2="7"/>
+          </svg>
+        </div>
+        <p class="drop-zone-text">Arraste seu Vídeo ou Áudio aqui</p>
+        <p class="drop-zone-hint">Arquivos de mídia de celulares ou WhatsApp para encolher (limites do PJe)</p>
+        <button class="drop-zone-btn" id="btn-browse-media-compress" type="button">Selecionar Mídia</button>
+      </div>
+
+      <div class="file-list" id="file-list-media-compress"></div>
+
+      <div class="img-to-pdf-workspace" id="workspace-media-compress" style="display: none; margin-top: 24px;">
+        <div class="workspace-settings">
+          <div class="controls-panel" id="controls-media-compress" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Controles do Compressor
+            </h3>
+
+            <!-- Opções específicas para vídeos -->
+            <div id="media-video-controls" style="width: 100%;">
+              <div class="controls-row">
+                <div class="control-group">
+                  <label class="control-label">Modo de Compressão de Vídeo</label>
+                  <div class="page-size-options" id="media-video-modes" style="flex-wrap: wrap;">
+                    <button class="page-size-option active" data-value="intelligent" type="button">Compressão Inteligente</button>
+                    <button class="page-size-option" data-value="limit" type="button">Tamanho Limite Judicial</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="controls-row" id="media-video-limit-row" style="display: none; margin-top: 12px; width: 100%;">
+                <div class="control-group" style="flex: 1;">
+                  <label class="control-label" for="select-media-video-limit">Peso Alvo Máximo (MB)</label>
+                  <select class="control-select" id="select-media-video-limit" style="width: 100%;">
+                    <option value="5">5 MB (Padrão Projudi super rígido)</option>
+                    <option value="10" selected>10 MB (Padrão TRF / TRT padrão)</option>
+                    <option value="15">15 MB (Padrão e-SAJ)</option>
+                    <option value="20">20 MB (PJe Federal limite geral)</option>
+                    <option value="40">40 MB (Tribunais Superiores)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Opções específicas para áudios -->
+            <div id="media-audio-controls" style="display: none; width: 100%;">
+              <div class="controls-row">
+                <div class="control-group" style="flex: 1;">
+                  <label class="control-label">Modo de Compressão de Áudio</label>
+                  <div class="page-size-option active" style="width: 100%; text-align: left; padding: 12px; height: auto;" type="button">
+                    <strong style="display: block; font-size: 13px; color: var(--accent-primary); margin-bottom: 4px;">MP3 Ultra Compacto (64kbps)</strong>
+                    <span style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; display: block; font-weight: normal;">Converte gravações de voz pesadas (gravadores ou WhatsApp) em MP3 leve mono. Voz limpa, peso ínfimo para processos.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="action-bar-inline" id="action-bar-media-compress-inline" style="margin-top: 16px;">
+              <div class="action-info">
+                <span id="media-compress-info-text">Aguardando arquivo...</span>
+              </div>
+              <button class="btn-primary" id="btn-media-compress-start" type="button" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Comprimir Mídia
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="workspace-preview">
+          <div class="controls-panel" style="margin-top: 0;">
+            <h3 class="controls-panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Estrutura do Arquivo
+            </h3>
+            <div id="media-compress-live-preview-container" class="pdf-live-preview-container" style="flex-direction: column; overflow-y: auto; max-height: 500px; overflow-x: hidden; align-items: center;">
+              <div class="preview-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <p>Nenhum arquivo ativo...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-panel" id="results-media-compress" style="display: none;">
+        <h3 class="results-title">Mídia Otimizada Gerada</h3>
+        <div class="results-list" id="results-list-media-compress"></div>
+        <div class="results-actions" id="results-actions-media-compress"></div>
+      </div>
+    </div>
+
+    <!-- Section: Histórico -->
+    <div class="section" id="section-history">
+      <div class="section-header">
+        <h1 class="section-title" id="title-history">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Histórico de Operações
+        </h1>
+        <button class="btn-help" id="btn-help-history" type="button" title="Ajuda & Tutorial" style="margin-left: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+        <button class="btn-secondary btn-sm" id="btn-clear-history" type="button" style="display: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          </svg>
+          Limpar Histórico
+        </button>
+      </div>
+
+      <div class="history-list" id="history-list">
+        <div class="history-empty" id="history-empty">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.3;">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <p>Nenhuma operação realizada ainda</p>
+          <p class="text-muted" style="font-size: 13px;">Converta, junte ou divida arquivos — tudo aparecerá aqui</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Floating Progress Widget (Canva-like) -->
+  <div class="floating-progress-widget" id="floating-progress-widget" style="display: none;">
+    <!-- Collapsed state / badge -->
+    <div class="widget-badge" id="widget-badge" style="display: none;">
+      <svg class="badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      <span class="badge-pulse"></span>
+    </div>
+
+    <!-- Expanded card state -->
+    <div class="widget-card" id="widget-card">
+      <button class="widget-close-btn" id="widget-close-btn" type="button" title="Fechar">&times;</button>
+      
+      <!-- State 1: Carregando com Barra Horizontal e Porcentagem Lateral -->
+      <div class="widget-state-loading" id="widget-state-loading" style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+        <div class="loading-info" style="width: 100%;">
+          <h4 class="loading-title" id="widget-loading-title" style="margin: 0; font-size: 14px; font-weight: 600; color: var(--text-primary);">Criando PDF...</h4>
+          <p class="loading-subtitle" style="margin: 2px 0 0 0; font-size: 12px; color: var(--text-muted);">Isso pode levar alguns segundos</p>
+        </div>
+        <div class="linear-progress-container" style="display: flex; align-items: center; gap: 12px; width: 100%;">
+          <div class="widget-progress-track" style="flex: 1; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+            <div class="widget-progress-fill" id="widget-progress-fill" style="width: 0%; height: 100%; background: var(--accent-gradient); border-radius: 4px; transition: width 0.4s ease;"></div>
+          </div>
+          <span class="progress-percent" id="widget-progress-percent" style="font-size: 13px; font-weight: 700; color: var(--accent-primary); min-width: 36px; text-align: right;">0%</span>
+        </div>
+      </div>
+
+      <!-- State 2: Sucesso / Concluído -->
+      <div class="widget-state-success" id="widget-state-success" style="display: none;">
+        <div class="success-icon-wrapper">
+          <svg class="success-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="success-info">
+          <h4 class="success-title" id="widget-success-title">PDF criado com sucesso!</h4>
+          <p class="success-subtitle">O seu arquivo já está pronto.</p>
+          <div class="widget-actions" id="widget-actions"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Modal Overlay (hidden by default) -->
+  <div class="modal-overlay" id="modal-overlay" style="display: none;">
+    <div class="modal" id="modal-dialog">
+      <h3 class="modal-title" id="modal-title">Confirmação</h3>
+      <p class="modal-message" id="modal-message"></p>
+      <div class="modal-actions">
+        <button class="btn-secondary" id="modal-cancel" type="button">Cancelar</button>
+        <button class="btn-primary" id="modal-confirm" type="button">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/upload.js"></script>
+  <script src="/js/fileManager.js"></script>
+  <script src="/js/converter.js"></script>
+  <script src="/js/pdfTools.js"></script>
+  <script src="/js/imageLayout.js"></script>
+  <script src="/js/pjeOptimize.js"></script>
+  <script src="/js/ocr.js"></script>
+  <script src="/js/mediaCompress.js"></script>
+  <script src="/js/history.js"></script>
+  <script src="/js/tutorial.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
